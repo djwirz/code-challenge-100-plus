@@ -8,7 +8,8 @@
     "start-watch": "nodemon server/index.js",
     "dev": "concurrently --kill-others \"npm run start-watch\" \"npm run build-watch\"",
     "build": "parcel build ./client/index.html",
-    "start": "npm run build && node server/index.js"
+    "start": "npm run build && node server/index.js",
+    "heroku-postbuild": "parcel build ./client/index.html"
   },
   "author": "",
   "license": "ISC",
