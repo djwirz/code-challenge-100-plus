@@ -1,6 +1,10 @@
 const express = require("express");
+const logger = require("morgan");
 
 const app = express();
+
+// setting up how noisy the logs should be
+app.use(logger("dev"));
 
 // parse request bodies (req.body)
 app.use(express.urlencoded({ extended: false }));
