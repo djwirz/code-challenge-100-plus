@@ -5,23 +5,23 @@ const { generateMBI, validateMBI } = require("../util/helpers.js");
 
 const app = express();
 
-// setting up how noisy the logs should be
-app.use(logger("dev"));
-
 // picking up static files from parcel
 app.use(express.static("./client/dist"));
+
+// setting up how noisy the logs should be
+app.use(logger("dev"));
 
 // parse request bodies (req.body)
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // choose status code
-app.get("/generate", (req, res) => {
+app.get("/api/generate", (req, res) => {
   res.json({ data: generateMBI() });
 });
 
 //   choose status code
-app.post("/validate", (req, res) => {
+app.post("/api/validate", (req, res) => {
   res.json({ data: validateMBI(req.body.data) });
 });
 

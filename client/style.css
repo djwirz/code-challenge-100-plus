@@ -1,3 +1,11 @@
 .center {
   text-align: center;
 }
+
+.container {
+  display: flex;
+}
+
+.half {
+  flex: 1;
+}
