@@ -8,6 +8,9 @@ const app = express();
 // setting up how noisy the logs should be
 app.use(logger("dev"));
 
+// picking up static files from parcel
+app.use(express.static("./client/dist"));
+
 // parse request bodies (req.body)
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -30,4 +33,4 @@ app.use(function (req, res, next) {
 const port = process.env.PORT || 3000;
 app.listen(port);
 
-console.log(`Password generator listening on ${port}`);
+console.log(`Server is listening on ${port}`);
