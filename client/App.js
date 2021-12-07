@@ -1,4 +1,4 @@
-const { render } = require("react-dom");
+import { render } from "react-dom";
 
 const App = () => {
   return (
