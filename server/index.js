@@ -27,5 +27,7 @@ app.use(function (req, res, next) {
   res.status(404).render("404", { url: req.originalUrl });
 });
 
-app.listen(3000);
-console.log("Express started on port 3000");
+const port = process.env.PORT || 3000;
+app.listen(port);
+
+console.log(`Password generator listening on ${port}`);
