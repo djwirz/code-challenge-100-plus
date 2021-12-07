@@ -1,6 +1,8 @@
 const express = require("express");
 const logger = require("morgan");
 
+const { generateMBI, validateMBI } = require("../util/helpers.js");
+
 const app = express();
 
 // setting up how noisy the logs should be
@@ -12,12 +14,12 @@ app.use(express.json());
 
 // choose status code
 app.get("/generate", (req, res) => {
-  res.json({ data: "test" });
+  res.json({ data: generateMBI() });
 });
 
 //   choose status code
 app.post("/validate", (req, res) => {
-  res.json({ data: "true" });
+  res.json({ data: validateMBI(req.body.data) });
 });
 
 // assume 404 since no middleware responded
